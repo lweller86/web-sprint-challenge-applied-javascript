@@ -1,4 +1,34 @@
+import axios from "axios";
+
 const Card = (article) => {
+
+  const cards = document.createElement('div');
+  const headline = document.createElement('div');
+  const author = document.createElement('div');
+  const container = document.createElement('div');
+  const img = document.createElement('img');
+  const authorName = document.createElement('span')
+
+  cards.appendChild(headline);
+  cards.appendChild(author);
+  author.appendChild(container);
+  container.appendChild(img);
+  author.appendChild(authorName);
+
+  cards.classList.add("card");
+  headline.classList.add("headline");
+  headline.textContent = article.headline;
+  author.classList.add("author");
+  img.src = `${article.authorPhoto}`;
+  authorName.setAttribute =`By ${article.authorName}`;
+
+cards.addEventListener('click', () =>{
+      console.log(headline);
+});
+
+      return cards;
+
+
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -19,7 +49,12 @@ const Card = (article) => {
   //
 }
 
+
 const cardAppender = (selector) => {
+
+   
+
+
   // TASK 6
   // ---------------------
   // Implement this function that takes a css selector as its only argument.
@@ -28,6 +63,6 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
-}
 
+}
 export { Card, cardAppender }
